@@ -17,11 +17,11 @@
 </body>
 <script language="javascript">
     var audioElement = document.createElement('audio');
-    window.localStorage.setItem("timer", 70);
+    window.localStorage.setItem("timer", 90);
     function countdown() {
         var timer = window.localStorage.getItem("timer");
         console.log("====>", timer);
-        if (timer % 10 == 0) {
+        if (timer % 15 == 0) {
             $("#status").text("Status: Playing");
             audioElement.play();
             console.log("running!!");
@@ -32,6 +32,7 @@
             clearInterval(myInterval);
         }
     }
+
     $(document).ready(function () {
         audioElement.setAttribute('src', './repo/applause.mp3');
 
@@ -49,11 +50,11 @@
             $("#currentTime").text("Current second:" + audioElement.currentTime);
         });
 
-        // $('#play').click(function () {
-            var myInterval = setInterval(function () {
-                countdown();
-            }, 1000);
-        // });
+        $('#play').click(function () {
+        var myInterval = setInterval(function () {
+            countdown();
+        }, 1000);
+        });
 
         $('#pause').click(function () {
             audioElement.pause();
